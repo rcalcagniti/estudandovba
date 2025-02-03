@@ -1,0 +1,62 @@
+' link do exercicio: https://www.wiseowl.co.uk/vba-macros/exercises/excel-vba/messages-and-variables/5016/
+
+Sub BancoDeDados()
+
+Dim Email As String
+Dim Nome As String
+Dim Genero As String
+Dim Idade As String
+
+Email = InputBox("digite a sua idade")
+Nome = InputBox("digite seu nome")
+Genero = InputBox("digite seu genero")
+Idade = InputBox("digite a sua idade")
+
+Range("b2") = Email
+Range("b3") = Nome
+Range("b4") = Genero
+Range("b5") = Idade
+
+End Sub
+
+
+Sub AdicionarAoBancoDeDados()
+
+Dim Email As String
+Dim Nome As String
+Dim Genero As String
+Dim Idade As String
+
+Email = Range("b2")
+Nome = Range("b3")
+Genero = Range("b4")
+Idade = Range("b5")
+
+If Email = "" Then
+MsgBox "Está faltando dado"
+Exit Sub
+End If
+
+Range("J2").Select
+Selection.End(xlDown).Select
+ActiveCell.Offset(1, 0).Select
+Selection = Email
+
+
+Range("K2").Select
+Selection.End(xlDown).Select
+ActiveCell.Offset(1, 0).Select
+Selection = Nome
+
+Range("L2").Select
+Selection.End(xlDown).Select
+ActiveCell.Offset(1, 0).Select
+Selection = Genero
+
+Range("M2").Select
+Selection.End(xlDown).Select
+ActiveCell.Offset(1, 0).Select
+Selection = Idade
+
+
+End Sub
