@@ -1,4 +1,5 @@
 ' link do exercicio: https://www.wiseowl.co.uk/vba-macros/exercises/excel-vba/messages-and-variables/5016/
+' planilha deve estar bloqueada, para só conseguir adicionar dados pelo inputbox
 
 Sub BancoDeDados()
 
@@ -7,7 +8,7 @@ Dim Nome As String
 Dim Genero As String
 Dim Idade As String
 
-Email = InputBox("digite a sua idade")
+Email = InputBox("digite a seu email")
 Nome = InputBox("digite seu nome")
 Genero = InputBox("digite seu genero")
 Idade = InputBox("digite a sua idade")
@@ -16,6 +17,24 @@ Range("b2") = Email
 Range("b3") = Nome
 Range("b4") = Genero
 Range("b5") = Idade
+
+End Sub
+
+Sub EditarDados()
+  Dim Email As String
+  Dim Nome As String
+  Dim Genero As String
+  Dim Idade As String
+
+ Email = InputBox("digite seu email", Default:=Range("b2").Value)
+ Nome = InputBox("digite seu nome", Default:=Range("b3").Value)
+ Genero = InputBox("digite seu genero", Default:=Range("b4").Value)
+ Idade = InputBox("digite sua idade", Default:=Range("b5").Value)
+ 
+ Range("b2") = Email
+ Range("b3") = Nome
+ Range("b4") = Genero
+ Range("b5") = Idade
 
 End Sub
 
