@@ -1,0 +1,48 @@
+'Criar VBA para operaçoes de: soma, media aritimetica, conversão de cm para m, e calculo da area de um circulo
+
+Sub Soma()
+Dim A As Integer
+Dim B As Integer
+
+A = Range("A3")
+B = Range("B3")
+
+Range("C3") = A + B
+
+End Sub
+
+
+
+Sub Media()
+Dim C As Integer
+Dim D As Integer
+
+C = Range("A7")
+D = Range("B7")
+
+Range("C7") = (C + D) / 2
+
+End Sub
+
+
+
+Sub Converter()
+Dim E As Integer
+
+E = Range("A12")
+
+Range("C12") = E / 100
+
+End Sub
+
+
+
+
+Sub AreaDoCirculo()
+Dim F As Integer
+
+F = Range("A16")
+
+Range("C16") = (F * F) * 3.14
+
+End Sub
