@@ -1,0 +1,12 @@
+'exercicio consiste em simular rodar um dado e mostrar o resultado na planilha
+
+Sub RodarDados()
+Dim Resultado As Integer
+
+Resultado = Int((6 * Rnd) + 1)
+Range("A2") = Resultado
+
+'Rnd gera numeros aleatorios de 0 a 1 - usasse o int para converter para um numero inteiro
+'o Numero 6 está delimitando o maior numero possivel dentro do aleatorio, como queremos um dado, é 6
+
+End Sub
