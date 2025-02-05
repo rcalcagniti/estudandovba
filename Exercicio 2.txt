@@ -1,4 +1,4 @@
-'Criar VBA para operaçoes de: soma, media aritimetica, conversão de cm para m, e calculo da area de um circulo
+'Criar VBA para operaçoes de: soma, media aritimetica, conversão de cm para m, calculo da area de um circulo, calculo do raio do circulo com inputbox
 
 Sub Soma()
 Dim A As Integer
@@ -46,3 +46,15 @@ F = Range("A16")
 Range("C16") = (F * F) * 3.14
 
 End Sub
+
+
+
+Sub AreaDoCirculoInput()
+Dim G As Integer
+
+G = InputBox("digite o raio do circulo")
+
+Range("B20") = G * G * 3.14
+
+End Sub
+
