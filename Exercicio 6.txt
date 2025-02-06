@@ -1,0 +1,22 @@
+'verifique a descricao do exercicio no readme em https://github.com/rcalcagniti/estudandovba
+
+
+Sub Macas()
+Dim TotalMacas As Integer
+Dim Duzias As Integer
+Dim MacasUnitarias As Integer
+Dim PrecoUnitario As Double
+Dim PrecoDuzia As Double
+Dim PrecoTotal As Double
+
+TotalMacas = Range("A5")
+Duzias = WorksheetFunction.RoundDown(TotalMacas / 12, 0)
+MacasUnitarias = TotalMacas - (Duzias * 12)
+
+PrecoUnitario = MacasUnitarias * 1.3
+PrecoDuzia = Duzias * 12 * 1
+PrecoTotal = PrecoDuzia + PrecoUnitario
+
+Range("C7") = PrecoTotal
+
+End Sub
