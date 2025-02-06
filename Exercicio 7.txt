@@ -1,0 +1,25 @@
+'verifique a descricao do exercicio em https://github.com/rcalcagniti/estudandovba
+
+Sub VerifiqueValorInput()
+Dim Valor As String 'Nao pode ser integer, se nao, nao entendo que nao é valido
+Dim Valido As Boolean
+
+
+Valor = InputBox("digite um número")
+Valido = IsNumeric(Valor)
+
+While Not IsNumeric(Valor) 'necessario apenas para quando é valor escrito
+MsgBox "Valor invalido"
+Exit Sub
+Wend
+
+
+If Valor < 0 Then
+MsgBox "O valor digitado é negativo"
+ElseIf Valor > 0 Then
+MsgBox "O valor é positivo"
+ElseIf Valor = 0 Then
+MsgBox "valor digitado é nulo"
+End If
+
+End Sub
