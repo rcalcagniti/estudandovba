@@ -1,0 +1,19 @@
+'Verifique descricao do exercicio no read.me em https://github.com/rcalcagniti/estudandovba/
+'alterei as celular descritas,fyi
+
+Sub QuemEMaisAlto()
+Dim Altura1 As Double
+Dim Altura2 As Double
+
+Altura1 = Range("a3")
+Altura2 = Range("C3")
+
+If Altura1 > Altura2 Then
+Range("a6") = "A Pessoa mais alta é: " & Range("a2")
+ElseIf Altura2 > Altura1 Then
+Range("a6") = "A Pessoa mais alta é: " & Range("C2")
+ElseIf Altura1 = Altrua2 Then
+Range("A6") = "São da mesma altura"
+End If
+
+End Sub
