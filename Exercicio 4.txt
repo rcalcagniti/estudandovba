@@ -1,0 +1,54 @@
+' Descriçao do Exercicio está no readme https://github.com/rcalcagniti/estudandovba/
+
+Sub DinheiroNotas()
+Dim ValorSaque As Integer
+Dim NotasDeCem As Integer
+Dim NotasDeCinquenta As Integer
+Dim NotasDeVinte As Integer
+Dim NotasDeDez As Integer
+Dim NotasDeDois As Integer
+Dim NotaDeUm As Integer
+Dim ValorPendente As Integer
+
+ValorSaque = Range("a2")
+
+NotasDeCem = WorksheetFunction.RoundDown(ValorSaque / 100, 0)
+Range("B5") = NotasDeCem
+
+ValorPendente = ValorSaque - NotasDeCem * 100
+If ValorPendente <= 0 Then
+Exit Sub
+End If
+
+NotasDeCinquenta = WorksheetFunction.RoundDown(ValorPendente / 50, 0)
+Range("B6") = NotasDeCinquenta
+ValorPendente = ValorPendente - NotasDeCinquenta * 50
+If ValorPendente <= 0 Then
+Exit Sub
+End If
+
+NotasDeVinte = WorksheetFunction.RoundDown(ValorPendente / 20, 0)
+Range("B7") = NotasDeVinte
+ValorPendente = ValorPendente - NotasDeVinte * 20
+If ValorPendente <= 0 Then
+Exit Sub
+End If
+
+NotasDeDez = WorksheetFunction.RoundDown(ValorPendente / 10, 0)
+Range("B8") = NotasDeDez
+ValorPendente = ValorPendente - NotasDeDez * 10
+If ValorPendente <= 0 Then
+Exit Sub
+End If
+
+NotasDeDois = WorksheetFunction.RoundDown(ValorPendente / 2, 0)
+Range("B9") = NotasDeDois
+ValorPendente = ValorPendente - NotasDeDois * 2
+If ValorPendente <= 0 Then
+Exit Sub
+End If
+
+NotasDeUm = ValorPendente
+Range("B10") = NotasDeUm
+
+End Sub
