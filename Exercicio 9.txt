@@ -1,0 +1,41 @@
+'Veja descricao do exercicio no read.me em https://github.com/rcalcagniti/estudandovba/
+
+Sub PesoIdeal()
+Dim Peso As Integer
+Dim Altura As Integer 'altura em cm
+Dim Sexo As String
+Dim PesoIdeal As Integer
+
+If IsNumeric(Range("B1")) = True Then
+Peso = Range("B1")
+Else
+MsgBox "Peso digitado é invalido"
+Exit Sub
+End If
+
+If IsNumeric(Range("B2")) = True Then
+Altura = Range("B2")
+Else
+MsgBox "Altura digitado é invalido"
+Exit Sub
+End If
+
+Sexo = UCase(Range("B3"))
+If Sexo = "F" Or Sexo = "M" Then
+If Sexo = "F" Then
+PesoIdeal = Altura - 120
+ElseIf Sexo = "M" Then
+PesoIdeal = Altura - 110
+End If
+Else
+MsgBox "Valor digitado em Sexo é Invalido"
+Exit Sub
+End If
+
+If PesoIdeal < Peso Then
+Range("a6") = "O seu peso ideal é: " & PesoIdeal & " -  você está acima do peso"
+ElseIf PesoIdeal > Peso Then
+Range("a6") = "Você está dentro do peso ideal"
+End If
+
+End Sub
