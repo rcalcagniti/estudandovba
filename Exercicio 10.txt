@@ -1,0 +1,21 @@
+'veja descricao do exercicio no read.me em https://github.com/rcalcagniti/estudandovba
+
+Sub OrdemCrescente()
+'Range("A1:B3").Sort Key1:=Range("B1"), Order1:=xlAscending, Header:=xlNo 'Desta forma muda todas as linhas
+
+'Range("A1:B3").Sort Key1:=Range("B1"), Order1:=xlAscending, Header:=xlNo 'desta froma muda só a coluna dos dados
+
+Range("B1", Range("B1").End(xlDown)).Sort Key1:=Range("B1"), Order1:=xlAscending, Header:=xlNo ' outra opçao caso precise
+
+End Sub
+
+Sub OrdemCrescenteOutraColuna()
+'sub para fazer a order em outra coluna
+Range("B:B").Select
+Selection.Copy
+Range("D1").Select
+ActiveSheet.Paste
+
+Range("D:D").Sort Key1:=Range("D1"), Order1:=xlAscending, Header:=xlNo
+
+End Sub
