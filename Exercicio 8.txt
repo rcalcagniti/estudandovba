@@ -1,0 +1,17 @@
+'Veja descricao do exercicio no read.me em https://github.com/rcalcagniti/estudandovba
+
+Sub VogalOuConsoante()
+Dim Letra As String
+Dim Resultado As String
+
+Letra = UCase(Range("A2")) 'precisa o UCase para deixar Maiusculo, independete de como o usuario colocar
+
+If Letra = "A" Or Letra = "E" Or Letra = "I" Or Letra = "O" Or Letra = "U" Then
+Resultado = "É vogal"
+Else
+Resultado = "É consoante"
+End If
+
+Range("A6") = Resultado
+
+End Sub
