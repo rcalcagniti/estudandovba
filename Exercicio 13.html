@@ -1,0 +1,33 @@
+'veja descrição do exercicio no read.me em https://github.com/rcalcagniti/estudandovba/
+
+Sub LoopNumerosPrimos()
+Dim Numeros As Variant
+Dim i As Integer
+i = 0
+Dim TotalNumerosPrimos As Integer
+
+Numeros = Array(Application.InputBox("digite um numero", Type:=1))
+
+If Numeros(i) = 2 Or Numeros(i) = 3 Or Numeros(i) = 5 Or Numeros(i) Mod 2 = 1 Or Numeros(i) Mod 3 = 1 Or Numeros(i) Mod 5 = 1 Then
+TotalNumerosPrimos = TotalNumerosPrimos + Numeros(i)
+End If
+
+Do
+i = i + 1
+ReDim Preserve Numeros(i + 2) 'diferente do Ubound do exercicio 12, i de array dentro de sub começa no 0 - entao precisa colocar (i+2)
+Numeros(i) = Application.InputBox("digite um numero", Type:=1)
+
+If Numeros(i) = False Then
+Exit Do
+End If
+
+
+If Numeros(i) = 2 Or Numeros(i) = 3 Or Numeros(i) = 5 Or Numeros(i) Mod 2 = 1 Or Numeros(i) Mod 3 = 1 Or Numeros(i) Mod 5 = 1 Then
+TotalNumerosPrimos = TotalNumerosPrimos + Numeros(i)
+End If
+
+Loop While i < 1000000
+
+MsgBox TotalNumerosPrimos
+
+End Sub
