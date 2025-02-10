@@ -11,7 +11,7 @@ TotalIdades = Idades(i)
 
 Do
 ReDim Preserve Idades(UBound(Idades) + 1)
-Idades(UBound(Idades)) = Application.InputBox("digite a idade do participante", Type:=1) 'teoricamente poderia ser Idades (i), mas eu nao consegui fazer funcionar
+Idades(UBound(Idades)) = Application.InputBox("digite a idade do participante", Type:=1) 'funciona com Idades(i-1) veja exercicio 13 
 TotalIdades = TotalIdades + Idades(UBound(Idades))
 i = i + 1
 
