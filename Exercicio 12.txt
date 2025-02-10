@@ -1,0 +1,35 @@
+'veja descriçao do exercício em read.me em https://github.com/rcalcagniti/estudandovba
+
+Sub LoopMediaIdade()
+Dim Idades As Variant
+Dim i As Integer
+i = 0
+Dim TotalIdade As Integer
+
+Idades = Array(Application.InputBox("digite a idade do participante", Type:=1))
+TotalIdades = Idades(i)
+
+Do
+ReDim Preserve Idades(UBound(Idades) + 1)
+Idades(UBound(Idades)) = Application.InputBox("digite a idade do participante", Type:=1) 'teoricamente poderia ser Idades (i), mas eu nao consegui fazer funcionar
+TotalIdades = TotalIdades + Idades(UBound(Idades))
+i = i + 1
+
+If Idades(UBound(Idades)) = False Then
+Exit Do
+End If
+
+Loop While i < 1000000 'valor de i é apenas ilusorio, deveria terminar quando o usuário clica em cancel
+
+Dim MediaIdades As Integer
+MediaIdades = TotalIdades / UBound(Idades)
+
+If MediaIdade < 15 Then
+MsgBox "O grupo é jovem"
+ElseIf MediaIdade > 15 And MediaIdade < 60 Then
+MsgBox "O grupo é adulto"
+ElseIf MediaIdade > 60 Then
+MsgBox "O grupo é idoso"
+End If
+
+End Sub
