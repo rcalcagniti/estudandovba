@@ -8,7 +8,7 @@ Dim TotalNumerosPrimos As Integer
 
 Numeros = Array(Application.InputBox("digite um numero", Type:=1))
 
-If Numeros(i) = 2 Or Numeros(i) = 3 Or Numeros(i) = 5 Or Numeros(i) Mod 2 = 1 Or Numeros(i) Mod 3 = 1 Or Numeros(i) Mod 5 = 1 Then
+If Numeros(i) = 2 Or Numeros(i) = 3 Or Numeros(i) = 5 Or Numeros(i) Mod 2 = 1 Or Numeros(i) Mod 3 = 1 Or Numeros(i) Mod 5 = 1 Then 'mod retorna 0 se for divisivel, e 1 se nao for divisivel
 TotalNumerosPrimos = TotalNumerosPrimos + Numeros(i)
 End If
 
