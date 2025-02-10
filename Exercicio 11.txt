@@ -1,0 +1,49 @@
+'veja descriçao do exercicio no read.me em https://github.com/rcalcagniti/estudandovba
+
+Sub LoopDo()
+
+Dim Numero As Integer
+Numero = 1
+
+Do
+Cells((Numero + 1), 1) = Numero
+Numero = Numero + 1
+
+Loop While Numero < 11
+
+End Sub
+
+Sub LoopDo2()
+
+Dim Numero As Integer
+Numero = 1
+
+Do While Numero < 11
+Cells((Numero + 10), 1) = Numero
+Numero = Numero + 1
+
+Loop
+
+End Sub
+
+Sub LoopWhile()
+
+Dim Numero As Integer
+Numero = 1
+
+While Numero < 11
+Cells((Numero + 1), 3) = Numero
+Numero = Numero + 1
+Wend
+
+End Sub
+
+Sub LoopFor()
+
+Dim Numero As Integer
+
+For Numero = 1 To 10
+Cells((Numero + 1), 5) = Numero
+Next
+
+End Sub
