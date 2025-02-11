@@ -1,0 +1,23 @@
+'veja descriçao do exercicio em read.me em https://github.com/rcalcagniti/estudandovba
+
+Public Function JurosCompostosMontanteFinal(MontanteInicial As Double, Juros As Double, Tempo As Integer) As Double
+Dim Resultado As Double
+Dim CalculoJuros As Double
+Dim CalculoTempo As Double
+
+Juros = Juros
+CalculoJuros = 1 + Juros
+CalculoTempo = 1
+
+
+While CalculoTempo < Tempo
+CalculoTempo = CalculoTempo + 1
+CalculoJuros = CalculoJuros * CalculoJuros
+Wend
+
+
+Resultado = MontanteInicial * (CalculoJuros)
+JurosCompostosMontanteFinal = Resultado
+
+
+End Function
