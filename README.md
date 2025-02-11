@@ -27,3 +27,9 @@ Exercicio 11: Escreva uma subrotina que imprima os números de 1 a 10 em ordem c
 Exercicio 12: Faça um programa que peça a idade para 𝑛 pessoas, ao final o programa deverá verificar se a média de idade da turma varia entre 0 e 25, 26 e 60 e maior que 60; e então, dizer se a turma é jovem, adulta ou idosa, conforme a média calculada.
 
 Exercicio 13: Dados n números inteiros positivos, calcular a soma dos que são primos
+
+Exercicio 14: 9. Um capital 𝐶, aplicado a um juro mensal 𝑖, retorna após 𝑛 meses, um valor total 𝑀, denominado montante, de acordo com a seguinte expressão: 𝑀 = 𝐶 × (1 + 𝑖) 𝑛. Escreva uma subrotina que apresente a menor quantidade de meses necessária para que se alcance o valor desejado. Os parâmetros da função devem ser o capital investido, o juro aplicado e o montante desejado.
+
+Exercicio 15: Jogo da forca
+
+Exercicio 16: jogo caça palavras, base para exercicio: https://www.wiseowl.co.uk/vba-macros/exercises/excel-vba/looping-over-collections/5034/
