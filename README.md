@@ -28,7 +28,7 @@ Exercicio 12: Faça um programa que peça a idade para 𝑛 pessoas, ao final o 
 
 Exercicio 13: Dados n números inteiros positivos, calcular a soma dos que são primos
 
-Exercicio 14: 9. Um capital 𝐶, aplicado a um juro mensal 𝑖, retorna após 𝑛 meses, um valor total 𝑀, denominado montante, de acordo com a seguinte expressão: 𝑀 = 𝐶 × (1 + 𝑖) 𝑛. Escreva uma subrotina que apresente a menor quantidade de meses necessária para que se alcance o valor desejado. Os parâmetros da função devem ser o capital investido, o juro aplicado e o montante desejado.
+Exercicio 14: 9. Um capital 𝐶, aplicado a um juro mensal 𝑖, retorna após 𝑛 meses, um valor total 𝑀, denominado montante, de acordo com a seguinte expressão: 𝑀 = 𝐶 × (1 + 𝑖) 𝑛. Escreva uma subrotina que apresnete o valor total M
 
 Exercicio 15: Jogo da forca
 
