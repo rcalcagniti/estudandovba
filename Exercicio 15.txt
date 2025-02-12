@@ -1,0 +1,82 @@
+'Jogo da forca, mas nao fiz o desenho
+'no excel mostra a palavra na linha 5
+'e mostra o total de erros na celula B1
+
+Sub JogoDaForca()
+
+Dim Palavra As String
+Palavra = Application.InputBox("Digite uma Palavra", Type:=2)
+
+'O formato abaixo funcionario se fosse dividir uma frase em array, porque usaria o espaço como separador - mas nao funciona para separar catactere
+'Dim ArrayPalavra() As String
+'ArrayPalavra() = Split(Palavra, " ")
+'ReDim Preserve ArrayPalavra(0 To UBound(ArrayPalavra) + 1)
+
+Dim Tamanho As Integer
+Tamanho = Len(Palavra)
+
+Dim ArrayPalavra(10000) As String ' 10000 é um numero simbolico
+
+'For para popular o array
+For I = 1 To Tamanho
+
+If ArrayPalavra(I) = " " Then  'if para bloquear que haja mais de uma palavra no campo de input
+MsgBox "Não pode haver espaço"
+Exit Sub
+End If
+
+ArrayPalavra(I) = Mid(Palavra, (I), 1)
+'MsgBox ArrayPalavra(I)
+
+With Cells(5, I)
+.Interior.Color = RGB(255, 0, 0)
+End With
+
+Next
+'Ate aqui foi so para pegar a palavra e quebrar em array
+
+Dim LetraChute As String
+Dim Erros As Integer
+Erros = 0
+Dim Resultado As Boolean
+Dim Acertos As Integer
+Acertos = 0
+
+
+
+'aqui começa a entender se o chute esta na palavra
+Do
+
+LetraChute = Application.InputBox("digite uma letra", Type:=2)
+
+If Len(LetraChute) > 1 Then
+MsgBox "Digite apenas uma letra"
+Exit Sub
+End If
+
+Resultado = False
+For d = 1 To Tamanho
+
+If LetraChute = ArrayPalavra(d) Then
+Cells(5, d) = LetraChute
+MsgBox "A letra que você colocou há na palavra"
+Resultado = True
+Acertos = Acertos + 1
+End If
+
+Next
+
+'precisa ter um if fora do Next para erro, para ficar mais facil contar os Erros
+If Resultado = False Then
+MsgBox "A Letra que você colocou NAO tem na palavra"
+Erros = Erros + 1
+Range("B1") = Erros
+ElseIf Acertos = Len(Palavra) Then
+MsgBox "Voce descobriu a palavra"
+Exit Do
+End If
+
+Loop While Erros < 6
+
+
+End Sub
