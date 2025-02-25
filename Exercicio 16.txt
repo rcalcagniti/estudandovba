@@ -1,0 +1,214 @@
+'verifique o exercicio em https://github.com/rcalcagniti
+
+Sub CacaPalavra() 'busca só uma palavra especifica
+
+Dim BaseParaBuscar As Range
+Set BaseParaBuscar = Sheets("CacaPalavrasSheet").Range("A1:G7")
+
+
+Dim PalavraParaBuscar As String
+PalavraParaBuscar = UCase(Sheets("CacaPalavrasSheet").Range("A15"))
+
+Dim TamanhoPalavra As Integer
+TamanhoPalavra = Len(PalavraParaBuscar)
+
+Dim TaCerto As Integer
+TaCerto = 0
+
+'buscar palavra na horizontal
+For I = 1 To 50
+If BaseParaBuscar(I) = Left(PalavraParaBuscar, 1) Then
+ If BaseParaBuscar(I + 1) = Mid(PalavraParaBuscar, 2, 1) Then
+ 
+ TaCerto = 2
+ X = I + 2 'para buscar dentro do BaseParaBuscar
+ Y = 3 'para buscar dentro da Palavra
+ 
+  For d = X To (X + TamanhoPalavra - 3) 'como Array começa com zero, precisa ser menos 3
+   If BaseParaBuscar(d) = Mid(PalavraParaBuscar, Y, 1) Then
+   TaCerto = TaCerto + 1
+   End If
+   Y = Y + 1
+   Next
+   
+ End If
+End If
+
+If TamanhoPalavra = TaCerto Then
+With Range(BaseParaBuscar(X - 2), BaseParaBuscar(X - 3 + TamanhoPalavra))
+.Interior.Color = RGB(255, 0, 0)
+End With
+End If
+
+Next
+
+
+Dim TaCertaVertical As Integer
+TaCertaVertical = 0
+'precisa fazer agora para buscar na vertical
+For I = 1 To 28 'para em 28 porque nao precisa percorrer todas as letras para o vertical)
+If BaseParaBuscar(I) = Left(PalavraParaBuscar, 1) Then
+  If BaseParaBuscar(I + 7) = Mid(PalavraParaBuscar, 2, 1) Then
+   TaCertaVertical = 2
+   Y = 3 'para buscar dentro de PalavraParaBuscar
+   X = I + 14 'para buscar dentro de BaseParaBuscar
+      For Y = 3 To TamanhoPalavra
+        If Mid(PalavraParaBuscar, Y, 1) = BaseParaBuscar(X) Then
+        TaCertaVertical = TaCertaVertical + 1
+        End If
+        X = X + 7
+  Next
+
+End If
+End If
+
+
+If TamanhoPalavra = TaCertaVertical Then
+Coluna = BaseParaBuscar(X).Column
+Linha = WorksheetFunction.RoundUp(((X - (7 * TamanhoPalavra)) / 7), 0)
+
+For q = 0 To (TamanhoPalavra - 1)
+With Cells(Linha + q, Coluna)
+.Interior.Color = RGB(255, 0, 0)
+End With
+
+Next
+End If
+Next
+
+
+End Sub
+
+
+
+
+
+
+
+
+Sub CacaPalavraRange() 'busca todo o range de palavras
+
+Dim BaseParaBuscar As Range
+Set BaseParaBuscar = Sheets("CacaPalavrasSheet").Range("A1:G7")
+
+
+Dim PalavraParaBuscarRange As Range
+Set PalavraParaBuscarRange = (Sheets("CacaPalavrasSheet").Range("A10:A17"))
+
+Dim NumeroPalavraArray As Integer 'para ajudar a identificar qual a palavra está rodando
+NumeroPalavraArray = 0
+
+'aqui comeca o loop para buscar as palavras
+For Each Palavra In PalavraParaBuscarRange
+Palavra = UCase(Palavra)
+
+Dim TamanhoPalavra As Integer
+TamanhoPalavra = Len(Palavra)
+
+
+'buscar palavra na horizontal
+For I = 1 To 50
+If BaseParaBuscar(I) = Left(Palavra, 1) Then
+ If BaseParaBuscar(I + 1) = Mid(Palavra, 2, 1) Then
+ Resultado = procurarhorizontal(Palavra, I)
+   If Resultado = True Then
+   Coluna = BaseParaBuscar(I).Column
+   Linha = BaseParaBuscar(I).Row
+   With Range(BaseParaBuscar(I), BaseParaBuscar(I - 1 + TamanhoPalavra))
+        .Interior.Color = RGB(255, 0, 0)
+  End With
+   End If
+ End If
+ End If
+Next
+
+'precisa fazer agora para buscar na vertical
+For I = 1 To 28 'para em 28 porque nao precisa percorrer todas as letras para o vertical)
+If BaseParaBuscar(I) = Left(Palavra, 1) Then
+  If BaseParaBuscar(I + 7) = Mid(Palavra, 2, 1) Then
+  Resultado = procurarvertical(Palavra, I)
+  If Resultado = True Then
+   Coluna = BaseParaBuscar(I).Column
+   Linha = BaseParaBuscar(I).Row
+   For d = 0 To (TamanhoPalavra - 1)
+   With Cells(Linha + d, Coluna)
+   .Interior.Color = RGB(255, 0, 0)
+   End With
+   Next
+  End If
+   End If
+   End If
+   Next
+
+If Resultado = True Then 'para ajudar a identificar quais palavras achou
+MsgBox NumeroPalavraArray
+With Range("A1" & NumeroPalavraArray)
+.Interior.Color = RGB(128, 128, 128)
+End With
+End If
+
+NumeroPalavraArray = NumeroPalavraArray + 1
+Next
+ 
+End Sub
+
+Private Function procurarhorizontal(Palavrarecebida, Busca) As Boolean
+
+Dim BaseParaBuscar As Range
+Set BaseParaBuscar = Sheets("CacaPalavrasSheet").Range("A1:G7")
+
+Dim TamanhoPalavra As Integer
+TamanhoPalavra = Len(Palavrarecebida)
+
+Dim TaCerta As Integer
+TaCerta = 2
+
+ X = Busca + 2 'para buscar dentro do BaseParaBuscar
+ Y = 3 'para buscar dentro da Palavra
+ 
+  For d = X To (X + TamanhoPalavra - 3) 'como Array começa com zero, precisa ser menos 3
+   If BaseParaBuscar(d) = Mid(Palavrarecebida, Y, 1) Then
+   TaCerta = TaCerta + 1
+   End If
+   Y = Y + 1
+   Next
+
+If TamanhoPalavra = TaCerta Then
+procurarhorizontal = True
+End If
+
+
+End Function
+
+
+
+Private Function procurarvertical(Palavrarecebida, Busca) As Boolean
+Dim BaseParaBuscar As Range
+Set BaseParaBuscar = Sheets("CacaPalavrasSheet").Range("A1:G7")
+
+Dim TamanhoPalavra As Integer
+TamanhoPalavra = Len(Palavrarecebida)
+
+Dim TaCertaVertical As Integer
+TaCertaVertical = 2
+
+'precisa fazer agora para buscar na vertical
+
+   TaCertaVertical = 2
+   Y = 3 'para buscar dentro de PalavraParaBuscar
+   X = Busca + 14 'para buscar dentro de BaseParaBuscar
+      For Y = 3 To TamanhoPalavra
+        If Mid(Palavrarecebida, Y, 1) = BaseParaBuscar(X) Then
+        TaCertaVertical = TaCertaVertical + 1
+        End If
+        X = X + 7
+  Next
+
+If TamanhoPalavra = TaCertaVertical Then
+procurarvertical = True
+End If
+
+End Function
+
+
+
